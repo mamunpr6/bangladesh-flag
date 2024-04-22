@@ -33,7 +33,7 @@ div {
     transform-origin: 0 0;
     background-image: radial-gradient(#ff0000 30%, #006a4d 30%);
     // background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Flag_of_Bangladesh.svg/1200px-Flag_of_Bangladesh.svg.png");
-    background-size: 22 * 20px 100%;
+    background-size: calc(22 * 20px) 100%;
     background-repeat: no-repeat;
 
     @for $i from 1 through 20 {
