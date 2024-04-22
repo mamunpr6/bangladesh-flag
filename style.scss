@@ -1,0 +1,55 @@
+body {
+  height: 100vh;
+  background-color: rgb(188, 191, 189);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 500px;
+}
+
+div {
+  transform-style: preserve-3d;
+}
+
+.flag {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  // transform: rotate(10deg);
+  &::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 10px;
+    width: 10px;
+    height: 600px;
+    background: #a3918e;
+  }
+  &_wave {
+    position: absolute;
+    left: 17px;
+    width: 18px;
+    height: 200px;
+    transform-origin: 0 0;
+    background-image: radial-gradient(#ff0000 30%, #006a4d 30%);
+    // background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Flag_of_Bangladesh.svg/1200px-Flag_of_Bangladesh.svg.png");
+    background-size: 22 * 20px 100%;
+    background-repeat: no-repeat;
+
+    @for $i from 1 through 20 {
+      &_#{$i} {
+        background-position-x: #{-$i * 20px};
+        animation: wave 1s #{$i * 50}ms ease-in-out infinite alternate;
+      }
+    }
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: rotateY(10deg);
+  }
+  100% {
+    transform: rotateY(-5deg);
+  }
+}
